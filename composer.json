@@ -1,0 +1,11 @@
+{
+    "name": "tsCMS/TemplateBundle",
+    "autoload": {
+        "psr-0" : {
+            "tsCMS\\TemplateBundle" : "src"
+        }
+    },
+    "require": {
+        "tsCMS/SystemBundle": "*"
+    }
+}
