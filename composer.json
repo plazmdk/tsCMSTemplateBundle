@@ -8,5 +8,11 @@
     "require": {
         "tsCMS/SystemBundle": "*",
         "bca/curl": "2.*"
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "git@github.com::plazmdk/tsCMSSystemBundle.git"
+        }
+    ]
 }
