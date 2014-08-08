@@ -1,0 +1,31 @@
+{% extends 'tsCMSSystemBundle::layout.html.twig' %}
+{% block title %}{{ "templates"|trans }}{% endblock %}
+{% block content %}
+    <a href="{{ path("tscms_template_template_create") }}" class="btn btn-primary">{{ "template.create"|trans }}</a>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>{{ "template.title"|trans }}</th>
+            <th>{{ "template.type"|trans }}</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for template in templates %}
+            <tr>
+                <td>{{ template.title }}</td>
+                <td>{{ templateTypes[template.type].name }}</td>
+                <td>
+                    <a href="{{ path("tscms_template_template_edit", {id: template.id}) }}">
+                        <i class="fa fa-edit"></i>
+                    </a>
+
+                    <a href="{{ path("tscms_template_template_delete", {id: template.id}) }}">
+                        <i class="fa fa-times-circle"></i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

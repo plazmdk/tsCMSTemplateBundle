@@ -1,0 +1,35 @@
+{% extends 'tsCMSSystemBundle::layout.html.twig' %}
+{% block title %}{{ "template"|trans }}{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-lg-4">
+            {{ form(form) }}
+        </div>
+        <div class="col-lg-8">
+            <iframe id="preview" href="about:blank" style="border: 1px solid #ccc;width:100%;min-height: 500px;background-color: #fff;"></iframe>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        var templateUpdateManager = function() {
+            var timer = null;
+            this.change = function() {
+                if (timer) {
+                    clearTimeout(timer);
+                    timer = null;
+                }
+
+                timer = setTimeout(changed, 1500);
+            };
+            var changed = function() {
+                $.post(Routing.generate("tscms_template_template_renderTemplatePreview"), $("#tscms_templatebundle_template").closest("form").serialize(), function(data) {
+                    $("#preview").contents().find('html').html(data);
+                });
+            };
+        };
+        var manager = new templateUpdateManager();
+        manager.change();
+        $("#tscms_templatebundle_template").find("textarea,input,select").change(manager.change);
+    </script>
+{% endblock %}

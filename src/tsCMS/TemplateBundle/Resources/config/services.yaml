@@ -1,0 +1,6 @@
+services:
+    tsCMS_template.templateservice:
+        class: tsCMS\TemplateBundle\Services\TemplateService
+        arguments: [ @doctrine.orm.entity_manager, @router, @event_dispatcher,@translator, @twig ]
+        tags:
+            - { name: kernel.event_listener, event: tsCMS.buildSiteStructure, method: onBuildSitestructure }

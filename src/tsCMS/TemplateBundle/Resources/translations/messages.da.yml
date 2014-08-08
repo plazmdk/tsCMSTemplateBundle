@@ -1,0 +1,11 @@
+templates: Skabeloner
+template:
+  title: Titel
+  type: Type
+  content: Skabelon
+
+  create: Opret skabelon
+
+  masterTemplate: Master
+
+  save: Gem
