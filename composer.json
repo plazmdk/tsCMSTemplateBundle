@@ -6,7 +6,7 @@
         }
     },
     "require": {
-        "tscms/system": "*",
+        "tscms/system": "dev-master",
         "bca/curl": "2.*"
     },
     "repositories": [
