@@ -5,6 +5,7 @@
             "tsCMS\\TemplateBundle" : ""
         }
     },
+    "target-dir": "tsCMS/TemplateBundle",
     "require": {
         "tscms/system": "dev-master",
         "bca/curl": "2.*"
