@@ -60,9 +60,9 @@ class TemplateType extends AbstractType {
                 'property' => 'title',
                 'query_builder' => function(EntityRepository $er) use($self) {
                         $qb = $er->createQueryBuilder('t');
-
+                        $qb->where("t.type = 'MASTER'");
                         if ($self) {
-                            $qb->where("t.id != :id")
+                            $qb->andWhere("t.id != :id")
                             ->setParameter("id", $self->getId());
                         }
 
